@@ -17,13 +17,13 @@ var NodeEs6Generator = yeoman.generators.Base.extend({
   askFor: function () {
     var done = this.async();
 
-    this.log(chalk.magenta('You\'re using the Node ES6 project generator.'));
+    this.log(chalk.magenta('You\'re using the Yeoman node ES6 package generator.'));
 
     var prompts = [{
       type: 'input',
       name: 'packageName',
-      default: "es6-node-package",
-      message: 'What do you want to call your new ES6 node package?'
+      default: "node-es6-package",
+      message: 'What do you want to call your new node ES6 package?'
     }];
 
     this.prompt(prompts, function (props) {
