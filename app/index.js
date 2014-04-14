@@ -1,43 +1,45 @@
 "use strict";
 
-var chalk = require('chalk');
-var yeoman = require('yeoman-generator');
+var path = require("path");
+var chalk = require("chalk");
+var yeoman = require("yeoman-generator");
 
-var NodeEs6Generator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json');
+var prompts = [{
+	type: "input",
+	name: "packageName",
+	default: "node-es6-package",
+	message: "What do you want to call your new node ES6 package?"
+}];
 
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-//        this.installDependencies();
-      }
-    });
-  },
+function handlePromptValues(done, props) {
+	this.packageName = props.packageName;
 
-  askFor: function () {
-    var done = this.async();
+	done();
+}
 
-    this.log(chalk.magenta('You\'re using the Yeoman node ES6 package generator.'));
+module.exports = yeoman.generators.NamedBase.extend({
+	init: function() {
+		this.log(chalk.magenta("You're using the Yeoman node ES6 package generator."));
 
-    var prompts = [{
-      type: 'input',
-      name: 'packageName',
-      default: "node-es6-package",
-      message: 'What do you want to call your new node ES6 package?'
-    }];
+//		console.info("Args", this.args);
+		console.info("Source root", this.sourceRoot());
+	},
 
-    this.prompt(prompts, function (props) {
-      this.packageName = props.packageName;
+	askFor: function() {
+		var done = this.async();
 
-      done();
-    }.bind(this));
-  },
+		this.prompt(prompts, handlePromptValues.bind(this, done));
+	},
 
-  app: function () {
-    this.mkdir(this.packageName);
+	app: function() {
+		var packageDirectory = this.packageName + path.sep;
 
-    this.copy('_package.json', this.packageName + '/package.json');
-  }
+		this.mkdir(this.packageName);
+		this.mkdir(packageDirectory + "src");
+
+		this.copy("_index.js", packageDirectory + "index.js");
+		this.copy(".gitignore", packageDirectory + ".gitignore");
+
+		this.template("_package.json", packageDirectory + "package.json");
+	}
 });
-
-module.exports = NodeEs6Generator;
