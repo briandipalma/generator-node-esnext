@@ -1,6 +1,6 @@
 "use strict";
 
-var path = require("path");
+var util = require("util");
 var chalk = require("chalk");
 var yeoman = require("yeoman-generator");
 
@@ -17,29 +17,31 @@ function handlePromptValues(done, props) {
 	done();
 }
 
-module.exports = yeoman.generators.NamedBase.extend({
-	init: function() {
-		this.log(chalk.magenta("You're using the Yeoman node ES6 package generator."));
+var NodeEs6Generator = module.exports = function(args, options) {
+	yeoman.generators.Base.apply(this, arguments);
 
-//		console.info("Args", this.args);
-		console.info("Source root", this.sourceRoot());
-	},
+	this.on("end", function() {
+		this.installDependencies({skipInstall: options["skip-install"]});
+	});
+};
 
-	askFor: function() {
-		var done = this.async();
+util.inherits(NodeEs6Generator, yeoman.generators.Base);
 
-		this.prompt(prompts, handlePromptValues.bind(this, done));
-	},
+NodeEs6Generator.prototype.init = function() {
+	this.log(chalk.magenta("You're using the Yeoman node ES6 package generator."));
+};
 
-	app: function() {
-		var packageDirectory = this.packageName + path.sep;
+NodeEs6Generator.prototype.askFor = function() {
+	var done = this.async();
 
-		this.mkdir(this.packageName);
-		this.mkdir(packageDirectory + "src");
+	this.prompt(prompts, handlePromptValues.bind(this, done));
+};
 
-		this.copy("_index.js", packageDirectory + "index.js");
-		this.copy(".gitignore", packageDirectory + ".gitignore");
+NodeEs6Generator.prototype.app = function() {
+	this.mkdir("src");
 
-		this.template("_package.json", packageDirectory + "package.json");
-	}
-});
+	this.copy("_index.js", "index.js");
+	this.copy(".gitignore", ".gitignore");
+
+	this.template("_package.json", "package.json");
+};
