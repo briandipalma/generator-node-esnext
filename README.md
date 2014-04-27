@@ -1,14 +1,15 @@
-# generator-node-es6 [![Build Status](https://secure.travis-ci.org/briandipalma/generator-node-es6.png?branch=master)](https://travis-ci.org/briandipalma/generator-node-es6)
-
-> [Yeoman](http://yeoman.io) generator
-
-
 ## Getting Started
 
-To install generator-node-es6 from npm, run:
+Install `generator-node-es6`.
 
 ```
 $ npm install -g generator-node-es6
+```
+
+Create a directory for your node es6 package. Then `cd` into it.
+
+```
+$ mkdir <node-es6-package> && cd <node-es6-package>
 ```
 
 Finally, initiate the generator:
