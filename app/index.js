@@ -43,5 +43,6 @@ NodeEs6Generator.prototype.app = function() {
 	this.copy("_index.js", "index.js");
 	this.copy(".gitignore", ".gitignore");
 
+	this.template("_README.md", "README.md");
 	this.template("_package.json", "package.json");
 };
