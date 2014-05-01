@@ -2,7 +2,7 @@
   "name": "<%= _.slugify(packageName) %>",
   "version": "0.0.0",
   "scripts": {
-    "start": "traceur src/index.js",
+    "start": "npm run build && node index.js",
     "build": "traceur --dir src/ out/ --modules=commonjs --sourcemap"
   },
   "dependencies": {
