@@ -1,5 +1,7 @@
 "use strict";
 
+var path = require("path");
+
 var util = require("util");
 var chalk = require("chalk");
 var yeoman = require("yeoman-generator");
@@ -42,6 +44,7 @@ NodeEs6Generator.prototype.app = function() {
 
 	this.copy("_index.js", "index.js");
 	this.copy(".gitignore", ".gitignore");
+	this.copy("index.js", path.join("src", "index.js"));
 
 	this.template("_README.md", "README.md");
 	this.template("_package.json", "package.json");
