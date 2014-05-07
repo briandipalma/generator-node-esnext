@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - '0.10'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-node-es6' ]; then cd .. && eval "mv $currentfolder generator-node-es6" && cd generator-node-es6; fi
-
