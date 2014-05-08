@@ -1,10 +1,10 @@
 {
-  "name": "generator-node-es6",
+  "name": "generator-node-esnext",
   "version": "0.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "briandipalma/generator-node-es6",
+  "repository": "briandipalma/generator-node-esnext",
   "author": {
     "name": "Brian Di Palma",
     "email": "",
