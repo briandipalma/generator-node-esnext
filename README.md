@@ -1,9 +1,11 @@
-## Getting Started
+![](https://david-dm.org/briandipalma/generator-node-es6.png)
+
+# Getting Started
 
 Install `generator-node-es6`.
 
 ```
-$ npm install -g generator-node-es6
+$ npm i -g generator-node-es6
 ```
 
 Create a directory for your node es6 package. Then `cd` into it.
@@ -18,18 +20,18 @@ Finally, initiate the generator:
 $ yo node-es6
 ```
 
-## Usage
+# Usage
 
 Within your package the generator provides the following commands.
 
-# Commands
+## Commands
 
 * `npm run build` - Compiles ES6 modules to ES5 CommonJS modules
 * `npm run start` - Execute your package. Only works if your package should run from the command line.
 
 The generator expects a few conventions. They are easy to change if they are not found to be suitable.
 
-# Expectations
+## Expectations
 
 * source code for your npm package is found in a `src` directory.
 * compiled ES6 code is outputed to the `out` directory.
