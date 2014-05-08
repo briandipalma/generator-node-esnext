@@ -1,7 +1,7 @@
 {
   "name": "generator-node-esnext",
   "version": "1.0.0",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator for creating node ES next (ES6, ES7) projects, using traceur and ES6 module loader.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "briandipalma/generator-node-esnext",
