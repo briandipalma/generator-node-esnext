@@ -4,10 +4,11 @@
   "scripts": {
     "prepublish": "npm run build",
     "start": "npm run build && node index.js",
+    "watch": "watchy -sw src -- npm run build",
     "build": "traceur --dir src/ out/ --modules=commonjs --sourcemap"
   },
   "dependencies": {
-    "traceur": "0.0.33",
-    "es6-module-loader": "0.5.4"
+    "traceur": "0.0.41",
+    "watchy": "^0.4.4"
   }
 }

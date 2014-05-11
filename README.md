@@ -28,6 +28,7 @@ Within your package the generator provides the following commands.
 
 * `npm run build` - Compiles ES6+ modules/code to ES5 CommonJS modules/code
 * `npm run start` - Execute your package. Only works if your package should run from the command line.
+* `npm run watch` - Watches `src` directory and rebuilds on changes.
 
 The generator expects a few conventions. They are easy to change if they are not found to be suitable.
 
