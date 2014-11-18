@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
-var path = require("path");
+var path = require('path');
 
-var util = require("util");
-var chalk = require("chalk");
-var yeoman = require("yeoman-generator");
+var util = require('util');
+var chalk = require('chalk');
+var yeoman = require('yeoman-generator');
 
 var prompts = [{
-	type: "input",
-	name: "packageName",
-	default: "node-es6-package",
-	message: "What do you want to call your new node ES6 package?"
+	type: 'input',
+	name: 'packageName',
+	default: 'node-es6-package',
+	message: 'What do you want to call your new node ES6+ package?'
 }];
 
 function handlePromptValues(done, props) {
@@ -22,8 +22,8 @@ function handlePromptValues(done, props) {
 var NodeEs6Generator = module.exports = function(args, options) {
 	yeoman.generators.Base.apply(this, arguments);
 
-	this.on("end", function() {
-		this.installDependencies({skipInstall: options["skip-install"]});
+	this.on('end', function() {
+		this.installDependencies({skipInstall: options['skip-install']});
 	});
 };
 
@@ -40,12 +40,12 @@ NodeEs6Generator.prototype.askFor = function() {
 };
 
 NodeEs6Generator.prototype.app = function() {
-	this.mkdir("src");
+	this.mkdir('src');
 
-	this.copy("_index.js", "index.js");
-	this.copy(".gitignore", ".gitignore");
-	this.copy("index.js", path.join("src", "index.js"));
+	this.copy('_index.js', 'index.js');
+	this.copy('.gitignore', '.gitignore');
+	this.copy('index.js', path.join('src', 'index.js'));
 
-	this.template("_README.md", "README.md");
-	this.template("_package.json", "package.json");
+	this.template('_README.md', 'README.md');
+	this.template('_package.json', 'package.json');
 };
