@@ -43,7 +43,7 @@ NodeEs6Generator.prototype.app = function() {
 	this.mkdir('src');
 
 	this.copy('_index.js', 'index.js');
-	this.copy('.gitignore', '.gitignore');
+	this.copy('_gitignore', '.gitignore');
 	this.copy('index.js', path.join('src', 'index.js'));
 
 	this.template('_README.md', 'README.md');
